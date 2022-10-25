@@ -1,0 +1,61 @@
+Como siempre, lo primero que haremos será conectar la Protoboard con el cable de 
+alimentación rojo (positivo)a la clavija de 5v y la toma de tierra con el cable negro.
+Después conectamos el piezoeléctrico, con una patilla a la toma de tierra y la otra a la clavija digital número 8 en la placa.
+Luego colocamos la célula fotoeléctrica conectando un lado a la toma de 5v y el otro lado a la clavija de entrada digital 0,
+conectando ésta a su vez a tierra a través de una resistencia de 10 kOhm.
+Para que funcione correctamente tenemos que añadir el siguiente codigo
+int sensorValue;
+
+int sensorLow = 1023;
+
+int sensorHigh = 0;
+
+const int ledPin = 13;
+
+void setup(){
+
+ 
+
+     pinMode(ledPin, OUTPUT);
+
+     digitalWrite(ledPin, HIGH);
+
+while (millis() < 5000) {
+
+      sensorValue = analogRead(A0);
+
+          if (sensorValue > sensorHigh) {
+
+                    sensorHigh = sensorValue;
+
+          }
+
+          if (sensorValue < sensorLow) {
+
+                    sensorLow = sensorValue;
+
+          }
+
+ }//Fin del bucle while.
+
+     digitalWrite(ledPin, LOW);
+
+ 
+
+} //Fin de la funcion setup.
+
+void loop() {
+
+ 
+
+        sensorValue = analogRead(A0);
+
+int pitch = map(sensorValue, sensorLow, sensorHigh, 50, 4000);
+
+     tone(8,pitch,20);
+
+         delay(10);
+
+ 
+
+}
