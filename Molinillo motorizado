@@ -1,0 +1,22 @@
+Este proyecto trata de conseguir que el Arduino haga girar un molinillo de colores con un motor.
+Por un par de razones, controlar motores con un Arduino es mas complicado que controlar unos leds. 
+Y, en segundo lugar, los motores pueden generar su propia corriente atrevas de
+un proceso llamado inducción, que puede dañar tu circuito si no tomas precauciones.
+El codigo introducido para que funcione correctamente
+const int switchPin = 2;
+const int motorPin = 9;
+int switchState = 0;
+void setup () {
+  pinMode(motorPin, OUTPUT);
+  pinMode(switchPin, INPUT);
+}
+void loop(){
+  switchState = digitalRead(switchPin);
+ 
+  if (switchState == HIGH) {
+    digitalWrite(motorPin, HIGH);
+  }
+  else {
+    digitalWrite(motorPin, LOW);
+  }
+}  
