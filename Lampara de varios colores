@@ -1,3 +1,11 @@
+Lo siguiente que haremos, será proteger el led con 3 resistencias, una para cada pata que no sea la del cátodo común. Estas resistencias son de 330 ohms.
+El siguiente paso, será conectar 3 jumpers, que nos permitan llegar a nuestro Arduino. He colocado un cable rojo, uno verde y uno azul, que representan 
+el color de la salida del led rgb, es decir, en el cable rojo, está la conexión para el color rojo del led rgb, y así mismo sucede con los otros 2 jumpers.
+Pasemos ahora a conectar la fotoresistencia. El objetivo de este componente, es que en cuanto se detecte una menor cantidad de luz, de acuerdo a la resistencia, 
+se prenda nuestra lámpara ambiental.
+Colocaremos entonces la fotoresistencia, del otro extremo del protobard, con el objetivo de controlar más fácilmente la luz que le llega.
+No importa realmente el sentido de las patillas, puedes colocarlas como tú quieras.
+
 Tenemos que poner el suiguiente codigo para que funcione corrrectamente.
 const int greenLEDPin = 9;    // LED connected to digital pin 9
 const int redLEDPin = 10;     // LED connected to digital pin 10
